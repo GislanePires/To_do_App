@@ -1,21 +1,29 @@
 .container {
-    width:450px;
     background-color:rgba(255,255,255, 0.15);
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255, 0.2);
-    padding: 40px;
+    padding: 50px 40px 40px;
     border-radius: 10px;
+}
+.form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 400px;
 }
 .container h1 {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     color: #fff;
 }
 .container .input-field {/*div pai*/
+  
     position:relative;  /*a div pai como relative, podemos posicionar o icon como absolute*/
     width:100%;
     height: 50px;
-    margin: 30px auto;
+    /* margin: 30px auto; */
 }
 .input-field input{
     width: 100%;
@@ -30,6 +38,10 @@
 .input-field input::placeholder {
     color:#fff;
 }
+.input-field input:focus {
+    border-color: #3498db;
+    outline: none; /* remove o contorno padrão */
+}
 
 .input-field .icon {
     position: absolute;
@@ -41,17 +53,14 @@
 .container .recall-forget {
     display: flex;
     justify-content: space-between;
-    font-size: 14.5px;
-    margin: 20px 0 15px;
+    gap:30px;
+    font-size: 12px;
 }
 
 .recall-forget label {
     color: #fff;
 }
 
-/* .recall-forget input {
-    width: 10%;
-} */
  .input-checkbox {
     margin-right: 5px;
  }
@@ -61,10 +70,9 @@
 }
 .recall-forget a:hover , .signup-link a:hover{
     text-decoration: underline;
+    color: #3498db;
 }
-/* .input-checkbox {
-    color: red;
-} */
+
 .container button {
     width:100%;
     height: 50px;
@@ -78,7 +86,7 @@
     text-shadow: none;
 }
 .container button:hover{
-    background-color: rgba(255,255,255, 0.2);
+    background-color: #3498db;
     color:#fff;
 }
 .container .signup-link {
@@ -86,4 +94,53 @@
     text-align: center;
     margin: 20px 0 10px;
     text-shadow: none;
+}
+/* Media Queries para tornar responsivo */
+@media (max-width: 768px) {
+    .container {
+        width: 70%; /* Reduz a largura para 80% da largura da tela */
+        padding: 20px;
+    }
+
+    .input-field input {
+        padding: 15px 30px; /* Ajusta o padding do input */
+    }
+
+    .container button {
+        font-size: 14px; /* Reduz o tamanho da fonte do botão */
+    }
+}
+
+    @media (max-width: 480px) {
+    .container {
+        width: 70%; /* Reduz ainda mais a largura para telas menores */
+        height: 400px;
+        
+    }
+
+    .form-login {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        
+    }
+
+    .input-field input {
+        padding: 12px 25px; /* Ajusta o padding do input para telas menores */
+        width: 50%;
+        height: 70%;
+        gap: 10px;
+    }
+    
+    /* .input-field .icon {
+        width: 3%;
+        right: 10px;
+        /* /* top: 35%;
+    } */
+    .container button {
+        width: 50%;
+        height: 10%;
+    }
 }

@@ -5,7 +5,30 @@ import "./Style.css";
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword ]= useState("");
-        //função para envio do formulário para o servidor/backend
+    const [usernameFocused, setUsernameFocused] = useState(false);
+    const [passwordFocused, setPasswordFocused] = useState(false);  
+    
+    //alterar input ao ser clicado
+
+    const handleUsernameFocus = () => {
+        setUsernameFocused(true);
+    };
+
+    const handleUsernameBlur = () => {
+        setUsernameFocused(false);
+    };
+
+    const handlePasswordFocus = () => {
+        setPasswordFocused(true);
+    };
+
+    const handlePasswordBlur = () => {
+        setPasswordFocused(false);
+    };
+
+
+
+    //função para envio do formulário para o servidor/backend
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -15,9 +38,9 @@ function Login() {
 
     return (
         <div className="container">
-            <form onSubmit={handleSubmit}> 
+            <form onSubmit={handleSubmit} className="form-login"> 
                 <h1>Acesse o Sistema</h1>
-                <div className="input-field">
+                <div className={`input-field ${usernameFocused ? 'focused' : ''}`}>
                     <input 
                     type="e-mail" 
                     placeholder="E-mail" 
